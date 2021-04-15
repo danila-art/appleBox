@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Поймай фрукт</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="data-game" id="outDataGame">
+        <div class="data-game__flex-box">
+            <h2>Имя игрока: </h2>
+            <h1 class="h1Data"></h1>
+        </div>
+        <div class="data-game__flex-box">
+            <h2>Количество очков: </h2>
+            <h1 class="h1Data"></h1>
+        </div>
+        <div class="data-game__flex-box">
+            <h2>Количество пропущенных: </h2>
+            <h1 class="h1Data"></h1>
+        </div>
+        <div class="data-game__flex-box">
+            <h2>Время: </h2>
+            <h1 class="h1Data"></h1>
+        </div>
+    </div>
+    <div class="start-game">
+        <input type="text" id="nameGamer"><br>
+        <h3 id="errorStart"></h3>
+        <button id="btnStartGame">Начать игру</button>
+    </div>
+    <canvas id="canvas" width="640" height="485"></canvas>
+    <script src="js/scriptGame.js"></script>
+
+    <script>
+        let block_start_game = document.querySelector('.start-game');
+        let nameGamer = document.getElementById('nameGamer');
+        let btnStartGame = document.getElementById('btnStartGame');
+        let errorStart = document.getElementById('errorStart');
+        btnStartGame.addEventListener('click', () => {
+            if (nameGamer.value == '') {
+                errorStart.innerHTML = 'Вы не ввели имя';
+            } else {
+                block_start_game.style.display = 'none';
+                startGame();
+            }
+        });
+    </script>
+</body>
+
+</html>
